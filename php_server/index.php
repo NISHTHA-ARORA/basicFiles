@@ -12,6 +12,11 @@ if(isset($_GET['light'])){
       fwrite($file, '0');
       fclose($file);
     }
+    else {
+      $pwmfile = fopen("pwm.txt", "w") or die("can't open file");
+      fwrite($pwmfile, $light);
+      fclose($pwmfile);
+    }
 
 }
 
@@ -25,10 +30,10 @@ if(isset($_GET['light'])){
   
   </head>
   <body>
-        <a href="google.com" >Turn On</a>
+        <a href="?light=on" >Turn On</a>
         <br />
 
-        <a href="google.com/search/?q=rishikesh" >Turn Off</a>
+        <a href=?light=off" >Turn Off</a>
         <br />
 
   </body>
